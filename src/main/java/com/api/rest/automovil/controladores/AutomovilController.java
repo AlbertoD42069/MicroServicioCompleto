@@ -42,7 +42,7 @@ public class AutomovilController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Automovil> guardarBiblioteca(@Valid @RequestBody Automovil automovil){
+	public ResponseEntity<Automovil> guardarMarca(@Valid @RequestBody Automovil automovil){
 		Automovil bibliotecaGuardada = automovilRepository.save(automovil);
 		URI ubicacion = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(bibliotecaGuardada.getId()).toUri();
@@ -50,39 +50,39 @@ public class AutomovilController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Automovil> actualizarBiblioteca(@PathVariable Integer id,@Valid @RequestBody Automovil automovil){
-		Optional<Automovil> bibliotecaOptional = automovilRepository.findById(id);
+	public ResponseEntity<Automovil> actualizarMarca(@PathVariable Integer id,@Valid @RequestBody Automovil automovil){
+		Optional<Automovil> marcaOptional = automovilRepository.findById(id);
 		
-		if(!bibliotecaOptional.isPresent()){
+		if(!marcaOptional.isPresent()){
 			return ResponseEntity.unprocessableEntity().build();
 		}
 		
-		automovil.setId(bibliotecaOptional.get().getId());
+		automovil.setId(marcaOptional.get().getId());
 		automovilRepository.save(automovil);
 		
 		return ResponseEntity.noContent().build();
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Automovil> eliminarBiblioteca(@PathVariable Integer id){
-		Optional<Automovil> bibliotecaOptional = automovilRepository.findById(id);
+	public ResponseEntity<Automovil> eliminarMarca(@PathVariable Integer id){
+		Optional<Automovil> marcaOptional = automovilRepository.findById(id);
 		
-		if(!bibliotecaOptional.isPresent()){
+		if(!marcaOptional.isPresent()){
 			return ResponseEntity.unprocessableEntity().build();
 		}
 		
-		automovilRepository.delete(bibliotecaOptional.get());
+		automovilRepository.delete(marcaOptional.get());
 		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Automovil> obtenerBibliotecaPorId(@PathVariable Integer id){
-		Optional<Automovil> bibliotecaOptional = automovilRepository.findById(id);
+	public ResponseEntity<Automovil> obtenerMarcaPorId(@PathVariable Integer id){
+		Optional<Automovil> marcaOptional = automovilRepository.findById(id);
 		
-		if(!bibliotecaOptional.isPresent()){
+		if(!marcaOptional.isPresent()){
 			return ResponseEntity.unprocessableEntity().build();
 		}
 		
-		return ResponseEntity.ok(bibliotecaOptional.get());
+		return ResponseEntity.ok(marcaOptional.get());
 	}
 }
