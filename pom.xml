@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.api.rest.automovil</groupId>
-	<artifactId>api-rest-biblioteca-libros-bidireccional</artifactId>
+	<artifactId>api-rest-autimovil-modelos-postgresSQLCompleto</artifactId>
 	<version>1.0</version>
-	<name>api-rest-biblioteca-libros-bidireccional</name>
+	<name>api-rest-autimovil-modelos-postgresSQLCompleto</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
